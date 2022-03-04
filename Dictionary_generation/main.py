@@ -4,13 +4,19 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def makeDict(K, V):
+    D = {}
+    for i in range(0,len(K)):
+        D[K[i]] = V[i]
+
+    return D
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+key = ('Korean', 'Mathematics', 'English')
+value = (90.3, 85.5, 92.7)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+dic = makeDict(key, value)
+
+for key, value in dic.items():
+    print(key, value)
+
