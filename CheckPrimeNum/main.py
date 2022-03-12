@@ -1,21 +1,29 @@
-# This is a sample Python script.
+# 201835506 임동혁
+# EX_1
 import math
 
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
 def CheckPrimeN(Pnum):
+    check = True
+
     for i in range(2, int(math.sqrt(Pnum)) + 1):
         if Pnum % i == 0:
-            print(str(i))
-            return
+            check=False
+            break;
+
+    return check
+
+
+number = 0
+while True:
+
+    if number < 2 or number > 32767:
+        number = int(input("Enter a number between 2 and 32767 : "))
+    else :
+        if CheckPrimeN(number)==True:
+            print(number,' is prime number!')
         else:
-            if i == int(math.sqrt(Pnum)):
-                print(str(Pnum) + " is prime number")
-            continue
+            print(number,' is not prime number')
+        break
 
 
-number = input("Type a number : ")
-CheckPrimeN(int(number))
