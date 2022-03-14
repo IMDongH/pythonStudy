@@ -11,5 +11,8 @@ def ColBMI(weight, height):
 wt = np.random.random(100) * 40 + 50
 ht = np.random.random(100) * 60 + 140
 bmi = ColBMI(wt, ht)
+
+print(bmi)
+
 for i in range(10):
     print(bmi[i])
