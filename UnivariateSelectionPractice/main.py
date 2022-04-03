@@ -16,6 +16,7 @@ negative_feature=-negative_feature
 
 
 independent_feature = housing_data.iloc[:, 1:8]
+print(independent_feature)
 categorical_value = housing_data.iloc[:, [-1]]
 #define onehotencoder because of categorical value
 ohe = OneHotEncoder(sparse=False)
@@ -29,7 +30,8 @@ new_independent_feature= pd.concat([new_independent_feature,categorical_feature]
 #hadling missing value
 new_independent_feature = new_independent_feature.fillna(0)
 
-bestfeatures = SelectKBest(score_func=chi2, k=13)
+bestfeatures = SelectKBest(score_func=chi2, k=10)
+
 fit = bestfeatures.fit(new_independent_feature, target_feature)
 dfcolumns = pd.DataFrame(new_independent_feature.columns)
 dfscores = pd.DataFrame(fit.scores_)
