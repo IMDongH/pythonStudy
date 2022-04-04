@@ -8,6 +8,8 @@ from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import chi2
 from sklearn.preprocessing import OneHotEncoder
 import seaborn as sns
+from sklearn.decomposition import PCA
+
 housing_data = pd.read_csv('data/housing.csv')
 #target column, i.e., house value
 target_feature = housing_data.iloc[:, -2]
@@ -16,21 +18,18 @@ negative_feature=housing_data.iloc[:,0]
 negative_feature=-negative_feature
 
 
-independent_feature = housing_data.iloc[:, 1:8]
+independent_feature = housing_data.iloc[:, 2:8]
 categorical_value = housing_data.iloc[:, [-1]]
 #define onehotencoder because of categorical value
 ohe = OneHotEncoder(sparse=False)
 onehot_encoder = ohe.fit(categorical_value)
-#categorical value changes to numerical value
-categorical_feature = pd.DataFrame(ohe.transform(categorical_value), columns=['case1', 'case2', 'case3', 'case4', 'case5'])
 
 #concat separated columns
-new_independent_feature = pd.concat([negative_feature,independent_feature], axis=1)
-new_independent_feature= pd.concat([new_independent_feature,categorical_feature], axis=1)
+new_independent_feature = pd.concat([target_feature,independent_feature], axis=1)
 #hadling missing value
 new_independent_feature = new_independent_feature.fillna(0)
 
-corrmat = housing_data.corr()
+corrmat = new_independent_feature.corr()
 top_corr_features=corrmat.index
 plt.figure(figsize=(20,20))
 g=sns.heatmap(housing_data[top_corr_features].corr(),annot=  True,cmap="RdYlGn")
