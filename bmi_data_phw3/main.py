@@ -1,3 +1,6 @@
+# 201835506 임동혁 201735819 김용겸 201735834 박정영 2018 김한뫼
+# phw3
+
 import numpy as np
 import pandas as pd
 from sklearn import preprocessing
