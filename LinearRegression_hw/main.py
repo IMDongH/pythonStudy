@@ -8,7 +8,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 
-spends = np.array([2400, 3650, 2350, 4950, 3100, 2500, 5106, 3100, 2900, 1750])
+spends = np.array([2400, 2650, 2350, 4950, 3100, 2500, 5106, 3100, 2900, 1750])
 spends = spends.reshape(-1, 1)
 income = np.array([41200, 50100, 52000, 66000, 44500, 37700, 73500, 37500, 56700, 35600])
 
