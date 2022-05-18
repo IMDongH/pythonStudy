@@ -18,7 +18,7 @@ ohe = OneHotEncoder(sparse=False)
 onehot_encoder = ohe.fit(categorical_value)
 #categorical value changes to numerical value
 categorical_feature = pd.DataFrame(ohe.transform(categorical_value), columns=['case1', 'case2', 'case3', 'case4', 'case5'])
-
+print(categorical_feature)
 #concat separated columns
 new_independent_feature= pd.concat([independent_feature,categorical_feature], axis=1)
 #hadling missing value
